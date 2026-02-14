@@ -1,0 +1,23 @@
+0 - Pigeon
+
+11 - CancoderOne
+12 - SteerMotorOne
+13 - DriveMotorOne
+
+21 - CancoderTwo
+22 - SteerMotorTwo
+23 - DriveMotorTwo
+
+31 - CancoderThree
+32 - SteerMotorThree
+33 - DriveMotorThree
+
+41 - CancoderFour
+42 - SteerMotorFour
+43 - DriveMotorFour
+
+51 - IntakeMotor
+
+61 - ShooterMotorOne
+62 - ShooterMotorTwo
+63 - ShooterMotorThree
