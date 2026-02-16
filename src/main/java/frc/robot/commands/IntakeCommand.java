@@ -11,7 +11,7 @@ public class IntakeCommand extends Command {
     // Delcaring Controller
     private final IO m_controller;
 
-    // Delaring Variable To Finish Command For Scheduler
+    // Declaring Variable To Finish Command For Scheduler
     private boolean isFinished = false;
 
     // Command Contructor
@@ -34,6 +34,23 @@ public class IntakeCommand extends Command {
     @Override
     // Execute Command
     public void execute() {
+        // Controller Mappings for feeder on X and Y Button
+        if (m_controller.GetButtonY()) {
+            m_intakeSubsystem.IntakeFeed(.5);
+        } else if (m_controller.GetButtonB()) {
+            m_intakeSubsystem.IntakeFeed(-.5);
+        } else {
+            m_intakeSubsystem.IntakeFeed(0);
+        }
+
+        // Controller Mappings for Drop on left Bumper and Right Bumper
+        if (m_controller.GetLeftBumper()) {
+            m_intakeSubsystem.IntakeDrop(-.5);
+        } else if (m_controller.GetRightTrigger()) {
+            m_intakeSubsystem.IntakeDrop(.5);
+        } else {
+            m_intakeSubsystem.IntakeDrop(0);
+        }
 
         isFinished = true;
     }

@@ -86,11 +86,11 @@ public class IO extends SubsystemBase {
         return m_controller.povLeft().getAsBoolean();
     }
 
-    public boolean RightTrigger() {
+    public boolean GetRightTrigger() {
         return m_controller.rightTrigger().getAsBoolean();
     }
 
-    public boolean LeftTrigger() {
+    public boolean GetLeftTrigger() {
         return m_controller.leftTrigger().getAsBoolean();
     }
 }

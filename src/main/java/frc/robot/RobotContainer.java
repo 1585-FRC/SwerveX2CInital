@@ -13,23 +13,16 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.commands.FollowPathCommand;
 
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
-import frc.robot.commands.ElevatorCommand;
-import frc.robot.commands.HopperCommand;
-import frc.robot.commands.IntakeCommand;
-import frc.robot.commands.ShooterCommand;
-import frc.robot.generated.TunerConstants;
-import frc.robot.subsystems.CommandSwerveDrivetrain;
-import frc.robot.subsystems.Elevator;
-import frc.robot.subsystems.Hopper;
-import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.Shooter;
-import frc.robot.subsystems.IO;
+import frc.robot.commands.*;
+import frc.robot.generated.*;
+import frc.robot.subsystems.*;
 
 public class RobotContainer {
     // Declare Subsystems
@@ -61,6 +54,9 @@ public class RobotContainer {
 
     private final Telemetry logger = new Telemetry(MaxSpeed);
 
+    // Deadband for Xbox sticks (0.1 = 10%)
+    private final double kControllerDeadband = 0.1;
+
     private final CommandXboxController joystick = new CommandXboxController(0);
 
     public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
@@ -77,19 +73,19 @@ public class RobotContainer {
         // Warmup PathPlanner to avoid Java pauses
         // FollowPathCommand.warmupCommand().schedule();
 
-        // Call Subsystems
+        // Create Object for Subystems
 
-        m_intake = new Intake(51);
-        m_shooter = new Shooter(61, 62);
-        m_hopper = new Hopper(71);
-        m_elevator = new Elevator(81, 82);
+        // m_intake = new Intake(51);
+        // m_shooter = new Shooter(61, 62);
+        // m_hopper = new Hopper(71);
+        // m_elevator = new Elevator(81, 82);
 
-        // Call Commands
+        // Create Object for Commands
 
-        m_intakeCommand = new IntakeCommand(m_intake, m_controller);
-        m_shooterCommand = new ShooterCommand(m_shooter, m_controller);
-        m_hopperCommand = new HopperCommand(m_hopper, m_controller);
-        m_elevatorCommand = new ElevatorCommand(m_elevator, m_controller);
+        // m_intakeCommand = new IntakeCommand(m_intake, m_controller);
+        // m_shooterCommand = new ShooterCommand(m_shooter, m_controller);
+        // m_hopperCommand = new HopperCommand(m_hopper, m_controller);
+        // m_elevatorCommand = new ElevatorCommand(m_elevator, m_controller);
     }
 
     private void configureBindings() {
@@ -97,11 +93,21 @@ public class RobotContainer {
         // and Y is defined as to the left according to WPILib convention.
         drivetrain.setDefaultCommand(
             // Drivetrain will execute this command periodically
-            drivetrain.applyRequest(() ->
-                drive.withVelocityX(-joystick.getLeftY() * MaxSpeed) // Drive forward with negative Y (forward)
-                    .withVelocityY(-joystick.getLeftX() * MaxSpeed) // Drive left with negative X (left)
-                    .withRotationalRate(-joystick.getRightX() * MaxAngularRate) // Drive counterclockwise with negative X (left)
-            )
+            drivetrain.applyRequest(() -> {
+                // read raw stick inputs (negated to preserve existing sign convention)
+                double rawForward = -joystick.getLeftY();
+                double rawLeft = -joystick.getLeftX();
+                double rawRot = -joystick.getRightX();
+
+                // apply deadband, then scale
+                double vx = MathUtil.applyDeadband(rawForward, kControllerDeadband) * MaxSpeed;
+                double vy = MathUtil.applyDeadband(rawLeft, kControllerDeadband) * MaxSpeed;
+                double omega = MathUtil.applyDeadband(rawRot, kControllerDeadband) * MaxAngularRate;
+
+                return drive.withVelocityX(vx)
+                        .withVelocityY(vy)
+                        .withRotationalRate(omega);
+            })
         );
 
         // Idle while the robot is disabled. This ensures the configured
@@ -112,9 +118,13 @@ public class RobotContainer {
         );
 
         joystick.a().whileTrue(drivetrain.applyRequest(() -> brake));
-        joystick.b().whileTrue(drivetrain.applyRequest(() ->
-            point.withModuleDirection(new Rotation2d(-joystick.getLeftY(), -joystick.getLeftX()))
-        ));
+        joystick.b().whileTrue(drivetrain.applyRequest(() -> {
+            double rawLeftY = -joystick.getLeftY();
+            double rawLeftX = -joystick.getLeftX();
+            double dbLeftY = MathUtil.applyDeadband(rawLeftY, kControllerDeadband);
+            double dbLeftX = MathUtil.applyDeadband(rawLeftX, kControllerDeadband);
+            return point.withModuleDirection(new Rotation2d(dbLeftY, dbLeftX));
+        }));
 
         joystick.povUp().whileTrue(drivetrain.applyRequest(() ->
             forwardStraight.withVelocityX(0.5).withVelocityY(0))

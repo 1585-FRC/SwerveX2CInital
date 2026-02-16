@@ -35,6 +35,16 @@ public class ShooterCommand extends Command {
     // Execute Command
     public void execute() {
 
+        // Controller Mappings On Left and Right triggers for Shooter
+
+        if (m_controller.GetRightTrigger()) {
+            m_shooterSubsystem.ShooterDrive(.5);
+        } else if (m_controller.GetLeftTrigger()) {
+            m_shooterSubsystem.ShooterDrive(-.5);
+        } else {
+            m_shooterSubsystem.ShooterDrive(0);
+        }
+
         isFinished = true;
     }
 

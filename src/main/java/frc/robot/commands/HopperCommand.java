@@ -34,6 +34,14 @@ public class HopperCommand extends Command {
     @Override
     // Execute Command
     public void execute() {
+        // Controller Mappings for Hopper buttons A and X
+        if (m_controller.GetButtonA()) {
+            m_hopperSubsystem.HopperDrive(.5);
+        } else if (m_controller.GetButtonB()) {
+            m_hopperSubsystem.HopperDrive(-.5);
+        } else {
+            m_hopperSubsystem.HopperDrive(0);
+        }
 
         isFinished = true;
     }
