@@ -27,7 +27,7 @@ public class Intake extends SubsystemBase {
     }
 
     // Creating Command For Intake
-    public Command Intake(double IntakeSpeed) {
+    public Command IntakeCommand(double IntakeSpeed) {
         return run(
                 () -> {
                     this.IntakeDrive(IntakeSpeed);

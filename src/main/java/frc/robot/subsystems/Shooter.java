@@ -22,7 +22,7 @@ public class Shooter extends SubsystemBase {
     }
 
     // Creating Command For Shooter
-    public Command Shooter(double ShooterSpeed) {
+    public Command ShooterCommand(double ShooterSpeed) {
         return run(
                 () -> {
                     this.ShooterDrive(ShooterSpeed);

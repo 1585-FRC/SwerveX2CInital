@@ -19,10 +19,14 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
+import frc.robot.commands.ElevatorCommand;
+import frc.robot.commands.HopperCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.ShooterCommand;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
+import frc.robot.subsystems.Elevator;
+import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.IO;
@@ -33,11 +37,15 @@ public class RobotContainer {
     private IO m_controller = new IO();
     private Intake m_intake;
     private Shooter m_shooter;
+    private Hopper m_hopper;
+    private Elevator m_elevator;
 
     // Declare Commands
 
     private IntakeCommand m_intakeCommand;
     private ShooterCommand m_shooterCommand;
+    private HopperCommand m_hopperCommand;
+    private ElevatorCommand m_elevatorCommand;
 
     private double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
     private double MaxAngularRate = RotationsPerSecond.of(0.75).in(RadiansPerSecond); // 3/4 of a rotation per second max angular velocity
@@ -73,11 +81,15 @@ public class RobotContainer {
 
         m_intake = new Intake(51);
         m_shooter = new Shooter(61, 62);
+        m_hopper = new Hopper(71);
+        m_elevator = new Elevator(81, 82);
 
         // Call Commands
 
         m_intakeCommand = new IntakeCommand(m_intake, m_controller);
         m_shooterCommand = new ShooterCommand(m_shooter, m_controller);
+        m_hopperCommand = new HopperCommand(m_hopper, m_controller);
+        m_elevatorCommand = new ElevatorCommand(m_elevator, m_controller);
     }
 
     private void configureBindings() {
