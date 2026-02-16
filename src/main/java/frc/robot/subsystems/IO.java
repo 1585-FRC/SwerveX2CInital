@@ -85,4 +85,12 @@ public class IO extends SubsystemBase {
     public boolean DPadLeft() {
         return m_controller.povLeft().getAsBoolean();
     }
+
+    public boolean RightTrigger() {
+        return m_controller.rightTrigger().getAsBoolean();
+    }
+
+    public boolean LeftTrigger() {
+        return m_controller.leftTrigger().getAsBoolean();
+    }
 }

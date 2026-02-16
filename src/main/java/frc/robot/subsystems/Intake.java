@@ -26,17 +26,29 @@ public class Intake extends SubsystemBase {
         m_winchMotor = new SparkMax(IntakeMotorChannelCAN, SparkLowLevel.MotorType.kBrushed);
     }
 
-    // Creating Command For Intake
-    public Command IntakeCommand(double IntakeSpeed) {
+    // Creating Command For Intake Drop
+    public Command IntakeDrops(double DropSpeed) {
         return run(
                 () -> {
-                    this.IntakeDrive(IntakeSpeed);
+                    this.IntakeDrop(DropSpeed);
                 });
     }
 
-    // Setting Parameters For Intake Command
-    public void IntakeDrive(double IntakeSpeed) {
-        m_feedingMotor.set(IntakeSpeed);
-        m_winchMotor.set(IntakeSpeed);
+    // Setting Parameters For Intake Drop Command
+    public void IntakeDrop(double DropSpeed) {
+        m_feedingMotor.set(DropSpeed);;
+    }
+
+    // Creating Command For Intake Feed
+    public Command IntakeFeeder(double FeedSpeed) {
+        return run(
+                () -> {
+                    this.IntakeFeed(FeedSpeed);
+                });
+    }
+
+    // Setting Parameters For Intake Drop Command
+    public void IntakeFeed(double FeedSpeed) {
+        m_feedingMotor.set(FeedSpeed);;
     }
 }
