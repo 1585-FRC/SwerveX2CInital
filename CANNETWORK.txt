@@ -16,8 +16,13 @@
 42 - SteerMotorFour
 43 - DriveMotorFour
 
-51 - IntakeMotor
+51 - FeedingMotor
+52 - WinchMotor
 
-61 - ShooterMotorOne
-62 - ShooterMotorTwo
-63 - ShooterMotorThree
+61 - ShooterMotorTop
+62 - ShooterMotorBottom
+
+71 - HopperMotor
+
+81 - ElevatorMotorOne
+82 - ElevatorMotorTwo

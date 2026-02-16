@@ -20,9 +20,11 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.ShooterCommand;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.IO;
 
 public class RobotContainer {
@@ -30,10 +32,12 @@ public class RobotContainer {
     
     private IO m_controller = new IO();
     private Intake m_intake;
+    private Shooter m_shooter;
 
     // Declare Commands
 
     private IntakeCommand m_intakeCommand;
+    private ShooterCommand m_shooterCommand;
 
     private double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
     private double MaxAngularRate = RotationsPerSecond.of(0.75).in(RadiansPerSecond); // 3/4 of a rotation per second max angular velocity
@@ -68,10 +72,12 @@ public class RobotContainer {
         // Call Subsystems
 
         m_intake = new Intake(51);
+        m_shooter = new Shooter(61, 62);
 
         // Call Commands
 
         m_intakeCommand = new IntakeCommand(m_intake, m_controller);
+        m_shooterCommand = new ShooterCommand(m_shooter, m_controller);
     }
 
     private void configureBindings() {
