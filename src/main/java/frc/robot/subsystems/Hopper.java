@@ -14,7 +14,7 @@ public class Hopper extends SubsystemBase {
     private Hopper m_controller;
 
     public Hopper(int HopperMotorChannelCAN) {
-        m_hopperMotor = new SparkMax(HopperMotorChannelCAN, SparkLowLevel.MotorType.kBrushed);
+        m_hopperMotor = new SparkMax(HopperMotorChannelCAN, SparkLowLevel.MotorType.kBrushless);
     }
 
      // Creating Command For Hopper

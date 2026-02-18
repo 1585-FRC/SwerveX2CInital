@@ -6,12 +6,18 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 public class IO extends SubsystemBase {
 
     // BUTTON MAPPINGS
-    // A: 
-    // B: 
-    // X: 
-    // Y: 
-    // LeftBumper: 
-    // RightBumper: 
+    // A: Hopper Forward
+    // B: Hopper Reverse
+    // X: Intake Feed Reverse
+    // Y: Intake Feed Forward
+    // Left Bumper: Intake Drop Reverse
+    // Right Bumper: Intake Drop Forward
+    // Left Trigger: Shooter Reverse
+    // Right Trigger: Shooter Forward 
+    // D Pad Up: Elevator Up
+    // D Pad Up Right:
+    // D Pad Up Left:
+    // D Pad Down: Elevator Down
 
     // Calls Xbox Controller
     public CommandXboxController m_controller = new CommandXboxController(1);
