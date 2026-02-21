@@ -7,13 +7,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "SimplePath"
+            "pathName": "Blue_IP-Drive-Middle"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "PathPlanner-Root_Autos",
+  "folder": "Blue_Intake-Pause_Autos",
   "choreoAuto": false
 }

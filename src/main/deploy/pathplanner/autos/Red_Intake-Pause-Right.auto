@@ -7,13 +7,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "SimplePath"
+            "pathName": "Red_IP-Drive-Right"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": "PathPlanner-Root_Autos",
+  "folder": "Red_Intake-Pause_Autos",
   "choreoAuto": false
 }
