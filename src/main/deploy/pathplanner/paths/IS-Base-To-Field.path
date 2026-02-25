@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.5499545454545451,
-        "y": 3.6948749999999997
+        "x": 3.5185568181818176,
+        "y": 5.529488636363636
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.518318181818182,
-        "y": 5.838693181818183
+        "x": 6.476613636363636,
+        "y": 5.663477272727273
       },
       "isLocked": false,
       "linkedName": null
@@ -20,15 +20,24 @@
         "y": 6.725079545454546
       },
       "prevControl": {
-        "x": 4.724454545454545,
-        "y": 5.333659090909092
+        "x": 6.280784090909091,
+        "y": 6.972443181818182
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.14937106918239001,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 45.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,7 +51,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 91.84761026599462
+    "rotation": 90.0
   },
   "reversed": false,
   "folder": "Intake-Score_Paths",

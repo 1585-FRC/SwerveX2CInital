@@ -3,64 +3,81 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.4881136363593344,
-        "y": 3.694874999997949
+        "x": 3.528863636363636,
+        "y": 2.5817386363636365
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.054272727268425,
-        "y": 2.2416136363615853
+        "x": 6.211891277568814,
+        "y": 1.752568769793771
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 8.300920454541153,
-        "y": 2.0560909090888573
+        "x": 7.435147727272726,
+        "y": 2.1179318181818187
       },
       "prevControl": {
-        "x": 7.083001616170271,
-        "y": 1.192249001049328
+        "x": 6.856551728735456,
+        "y": 1.6828341046417634
       },
       "nextControl": {
-        "x": 9.145131947170169,
-        "y": 2.6548707650249317
+        "x": 8.240889844039636,
+        "y": 2.7238408697384973
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 8.300920454541153,
-        "y": 5.787159090907039
+        "x": 7.435147727272726,
+        "y": 5.972681818181818
       },
       "prevControl": {
-        "x": 9.156168038646902,
-        "y": 5.206077234925055
+        "x": 8.295898605947635,
+        "y": 5.307647043040801
       },
       "nextControl": {
-        "x": 7.163999158067691,
-        "y": 6.5596188433084635
+        "x": 6.725575433715619,
+        "y": 6.520912743508902
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 1.4881136363593344,
-        "y": 3.694874999997949
+        "x": 3.528863636363636,
+        "y": 5.560409090909091
       },
       "prevControl": {
-        "x": 4.363715909086607,
-        "y": 6.158204545452494
+        "x": 5.9730289997018815,
+        "y": 6.099066737631349
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.14150943396226429,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 2.4905660377358547,
+      "rotationDegrees": -158.0
+    },
+    {
+      "waypointRelativePos": 2.8254716981132124,
+      "rotationDegrees": 180.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -74,7 +91,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 180.0
   },
   "reversed": false,
   "folder": "Ball-Mess_Paths",
