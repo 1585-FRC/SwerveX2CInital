@@ -1,0 +1,19 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "IP-Drive-Left"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": "Intake-Pause_Autos",
+  "choreoAuto": false
+}

@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.7251704545454545,
-        "y": 6.0
+        "x": 1.3953522727272725,
+        "y": 1.3964545454545452
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.745068181818182,
-        "y": 5.323352272727273
+        "x": 2.2508181818181816,
+        "y": 2.736340909090909
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 6.971340909090909,
-        "y": 4.99353409090909
+        "x": 2.9207613636363634,
+        "y": 4.014386363636364
       },
       "prevControl": {
-        "x": 4.724454545454545,
-        "y": 5.323352272727273
+        "x": 2.2508181818181816,
+        "y": 2.7363409090909094
       },
       "nextControl": null,
       "isLocked": false,
@@ -42,10 +42,10 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Leave-Zone_Paths",
+  "folder": "Drive-Score_Paths",
   "idealStartingState": {
     "velocity": 0,
     "rotation": 0.0

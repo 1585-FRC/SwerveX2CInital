@@ -1,0 +1,86 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 1.4881136363593344,
+        "y": 3.694874999997949
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 5.054272727268425,
+        "y": 2.2416136363615853
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.300920454541153,
+        "y": 2.0560909090888573
+      },
+      "prevControl": {
+        "x": 7.083001616170271,
+        "y": 1.192249001049328
+      },
+      "nextControl": {
+        "x": 9.145131947170169,
+        "y": 2.6548707650249317
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.300920454541153,
+        "y": 5.787159090907039
+      },
+      "prevControl": {
+        "x": 9.156168038646902,
+        "y": 5.206077234925055
+      },
+      "nextControl": {
+        "x": 7.163999158067691,
+        "y": 6.5596188433084635
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.4881136363593344,
+        "y": 3.694874999997949
+      },
+      "prevControl": {
+        "x": 4.363715909086607,
+        "y": 6.158204545452494
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.5,
+    "maxAcceleration": 7.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "Ball-Mess_Paths",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}
