@@ -6,10 +6,14 @@ package frc.robot;
 
 import static edu.wpi.first.units.Units.*;
 
+import java.lang.ModuleLayer.Controller;
+
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
+import com.fasterxml.jackson.databind.util.Named;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.FollowPathCommand;
 
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -22,9 +26,20 @@ import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 
 import frc.robot.generated.TunerConstants;
-import frc.robot.subsystems.CommandSwerveDrivetrain;
+import frc.robot.subsystems.*;
+import frc.robot.commands.*;
 
 public class RobotContainer {
+
+
+        private boolean enableDriveSystem = true;
+        // Declare Subsystems Varaiables
+        private final IO m_controller = new IO();
+        private final Intake m_intake;
+
+        // Declare Commands Variables
+        private final IntakeCommand m_intakeCommand;
+
         private double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired
                                                                                             // top
                                                                                             // speed
@@ -52,36 +67,49 @@ public class RobotContainer {
                 return Math.abs(v) > 0.2 ? v : 0.0;
         }
 
-        public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
+        public final CommandSwerveDrivetrain drivetrain = enableDriveSystem ? TunerConstants.createDrivetrain() : null;
 
         /* Path follower */
-        private final SendableChooser<Command> autoChooser;
+        private SendableChooser<Command> autoChooser = null;
 
         public RobotContainer() {
-                autoChooser = AutoBuilder.buildAutoChooser("Tests");
-                SmartDashboard.putData("Auto Mode", autoChooser);
+                // NamedCommands.registerCommand("Score", new ScoreCommand());
+
+                if(enableDriveSystem)
+                {
+                        autoChooser = AutoBuilder.buildAutoChooser("Tests");
+                        SmartDashboard.putData("Auto Mode", autoChooser);
+
+                         // Warmup PathPlanner to avoid Java pauses
+                        FollowPathCommand.warmupCommand().schedule();
+                }
 
                 configureBindings();
 
-                // Warmup PathPlanner to avoid Java pauses
-                FollowPathCommand.warmupCommand().schedule();
+        
 
                 // Create Object for Subystems
 
-                // m_intake = new Intake(51);
+                m_intake = new Intake(51, 52);
                 // m_shooter = new Shooter(61, 62);
                 // m_hopper = new Hopper(71);
                 // m_elevator = new Elevator(81, 82);
 
                 // Create Object for Commands
 
-                // m_intakeCommand = new IntakeCommand(m_intake, m_controller);
+                m_intakeCommand = new IntakeCommand(m_intake, m_controller);
                 // m_shooterCommand = new ShooterCommand(m_shooter, m_controller);
                 // m_hopperCommand = new HopperCommand(m_hopper, m_controller);
                 // m_elevatorCommand = new ElevatorCommand(m_elevator, m_controller);
         }
 
         private void configureBindings() {
+
+                if(!enableDriveSystem)
+                {
+                        return;
+                }
+
                 // Note that X is defined as forward according to WPILib convention,
                 // and Y is defined as to the left according to WPILib convention.
                 drivetrain.setDefaultCommand(

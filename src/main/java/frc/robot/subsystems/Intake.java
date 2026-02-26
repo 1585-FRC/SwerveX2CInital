@@ -20,10 +20,10 @@ public class Intake extends SubsystemBase {
     private Intake m_controller;
 
     // Contructor for subsystem
-    public Intake(int IntakeMotorChannelCAN) {
+    public Intake(int FeedingMotorChannelCAN, int WinchMotorChannelCAN) {
         // Creating the intake motor object
-        m_feedingMotor = new SparkMax(IntakeMotorChannelCAN, SparkLowLevel.MotorType.kBrushless);
-        m_winchMotor = new SparkMax(IntakeMotorChannelCAN, SparkLowLevel.MotorType.kBrushed);
+        m_feedingMotor = new SparkMax(FeedingMotorChannelCAN, SparkLowLevel.MotorType.kBrushless);
+        m_winchMotor = new SparkMax(WinchMotorChannelCAN, SparkLowLevel.MotorType.kBrushed);
     }
 
     // Creating Command For Intake Drop
@@ -36,7 +36,8 @@ public class Intake extends SubsystemBase {
 
     // Setting Parameters For Intake Drop Command
     public void IntakeDrop(double DropSpeed) {
-        m_feedingMotor.set(DropSpeed);;
+        m_feedingMotor.set(DropSpeed);
+        m_winchMotor.set(DropSpeed);
     }
 
     // Creating Command For Intake Feed
@@ -49,6 +50,7 @@ public class Intake extends SubsystemBase {
 
     // Setting Parameters For Intake Drop Command
     public void IntakeFeed(double FeedSpeed) {
-        m_feedingMotor.set(FeedSpeed);;
+        m_feedingMotor.set(FeedSpeed);
+        m_winchMotor.set(FeedSpeed);
     }
 }
