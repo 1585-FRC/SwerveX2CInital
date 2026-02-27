@@ -101,6 +101,14 @@ public class RobotContainer {
                 // m_shooterCommand = new ShooterCommand(m_shooter, m_controller);
                 // m_hopperCommand = new HopperCommand(m_hopper, m_controller);
                 // m_elevatorCommand = new ElevatorCommand(m_elevator, m_controller);
+
+                // TODO: Start and Initialize Camera Server for Vision Processing
+
+                // Schedule the Commands
+                m_intake.setDefaultCommand((m_intakeCommand));
+                // m_shooter.setDefaultCommand((m_shooterCommand));
+                // m_hopper.setDefaultCommand((m_hopperCommand));
+                // m_elevator.setDefaultCommand((m_elevatorCommand));
         }
 
         private void configureBindings() {
