@@ -19,10 +19,10 @@
 51 - FeedingMotor
 52 - WinchMotor
 
-61 - ShooterMotorTop
-62 - ShooterMotorBottom
+54 - ShooterMotorTop
+55 - ShooterMotorBottom
 
-71 - HopperMotor
+58 - HopperMotor
 
-81 - ElevatorMotorOne
-82 - ElevatorMotorTwo
+61 - ElevatorMotorOne
+62 - ElevatorMotorTwo

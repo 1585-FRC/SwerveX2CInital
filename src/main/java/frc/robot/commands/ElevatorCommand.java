@@ -34,14 +34,13 @@ public class ElevatorCommand extends Command {
     @Override
     // Execute Command
     public void execute() {
-
         // Elevator Drive Command Mapped To Controller D Pad Up And Down
         if (m_controller.DPadUp()) {
-            m_elevatorSubsystem.ElevatorDrive(.5);
+            m_elevatorSubsystem.ElevatorDrive(.15);
         } else if (m_controller.DPadDown()) {
-            m_elevatorSubsystem.ElevatorCommand(-.5);
+            m_elevatorSubsystem.ElevatorDrive(-.15);
         } else {
-            m_elevatorSubsystem.ElevatorCommand(0);
+            m_elevatorSubsystem.ElevatorDrive(0);
         }
 
         isFinished = true;

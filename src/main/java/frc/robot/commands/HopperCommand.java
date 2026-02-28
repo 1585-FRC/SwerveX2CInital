@@ -14,6 +14,8 @@ public class HopperCommand extends Command {
     // Declaring Variable To Finish Command For Scheduler
     private boolean isFinished = false;
 
+    
+
     // Command Constructor
     public HopperCommand(Hopper hopperSubsystem, IO controller) {
         // Declaring Subsystem Variable
@@ -37,7 +39,7 @@ public class HopperCommand extends Command {
         // Controller Mappings for Hopper buttons A and X
         if (m_controller.GetButtonA()) {
             m_hopperSubsystem.HopperDrive(.5);
-        } else if (m_controller.GetButtonB()) {
+        } else if (m_controller.GetButtonX()) {
             m_hopperSubsystem.HopperDrive(-.5);
         } else {
             m_hopperSubsystem.HopperDrive(0);

@@ -36,9 +36,15 @@ public class RobotContainer {
         // Declare Subsystems Varaiables
         private final IO m_controller = new IO();
         private final Intake m_intake;
+        private final Shooter m_shooter;
+        private final Hopper m_hopper;
+        private final Elevator m_elevator;
 
         // Declare Commands Variables
         private final IntakeCommand m_intakeCommand;
+        private final ShooterCommand m_shooterCommand;
+        private final HopperCommand m_hopperCommand;
+        private final ElevatorCommand m_elevatorCommand;
 
         private double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired
                                                                                             // top
@@ -91,24 +97,24 @@ public class RobotContainer {
                 // Create Object for Subystems
 
                 m_intake = new Intake(51, 52);
-                // m_shooter = new Shooter(61, 62);
-                // m_hopper = new Hopper(71);
-                // m_elevator = new Elevator(81, 82);
+                m_shooter = new Shooter(54, 55);
+                m_hopper = new Hopper(58);
+                m_elevator = new Elevator(61, 62);
 
                 // Create Object for Commands
 
                 m_intakeCommand = new IntakeCommand(m_intake, m_controller);
-                // m_shooterCommand = new ShooterCommand(m_shooter, m_controller);
-                // m_hopperCommand = new HopperCommand(m_hopper, m_controller);
-                // m_elevatorCommand = new ElevatorCommand(m_elevator, m_controller);
+                m_shooterCommand = new ShooterCommand(m_shooter, m_controller);
+                m_hopperCommand = new HopperCommand(m_hopper, m_controller);
+                m_elevatorCommand = new ElevatorCommand(m_elevator, m_controller);
 
                 // TODO: Start and Initialize Camera Server for Vision Processing
 
                 // Schedule the Commands
                 m_intake.setDefaultCommand((m_intakeCommand));
-                // m_shooter.setDefaultCommand((m_shooterCommand));
-                // m_hopper.setDefaultCommand((m_hopperCommand));
-                // m_elevator.setDefaultCommand((m_elevatorCommand));
+                m_shooter.setDefaultCommand((m_shooterCommand));
+                m_hopper.setDefaultCommand((m_hopperCommand));
+                m_elevator.setDefaultCommand((m_elevatorCommand));
         }
 
         private void configureBindings() {

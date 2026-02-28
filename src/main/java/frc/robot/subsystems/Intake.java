@@ -36,7 +36,6 @@ public class Intake extends SubsystemBase {
 
     // Setting Parameters For Intake Drop Command
     public void IntakeDrop(double DropSpeed) {
-        m_feedingMotor.set(DropSpeed);
         m_winchMotor.set(DropSpeed);
     }
 
@@ -51,6 +50,5 @@ public class Intake extends SubsystemBase {
     // Setting Parameters For Intake Drop Command
     public void IntakeFeed(double FeedSpeed) {
         m_feedingMotor.set(FeedSpeed);
-        m_winchMotor.set(FeedSpeed);
     }
 }
