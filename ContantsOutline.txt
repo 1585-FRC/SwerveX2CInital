@@ -1,0 +1,17 @@
+1. Create a new Java class named 'Constants.java'
+
+2. Create a private method for 'private Constants() {}'
+
+3. Create a static final class method for each command
+
+4. create a public static final double variable for each constant i.e('public static final double FEEDER_OFF = 0.0;')
+
+5. import the constants file into each command
+
+6. call the constant in each place i.e('Constants.Intake.FEEDER_OFF')
+
+7. test on test bench
+
+8. If extra time is available then we can add our can devices to the constants so they are easily changable
+
+9. we can also add anything else that might need to be changed on a regular basis to a constant

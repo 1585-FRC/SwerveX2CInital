@@ -1,0 +1,2 @@
+I would like to create a way for us to enable and disable parts of the robot easier than going to 5 different places in the code to comment out lines
+think of a couple of different ways that we can do this. We can use a boolean, we can have everything in one method, there is more than one solution
