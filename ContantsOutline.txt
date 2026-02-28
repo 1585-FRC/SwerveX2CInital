@@ -4,7 +4,7 @@
 
 3. Create a static final class method for each command
 
-4. create a public static final double variable for each constant i.e('public static final double FEEDER_OFF = 0.0;')
+4. create a public final static double variable for each constant i.e('public static final double FEEDER_OFF = 0.0;')
 
 5. import the constants file into each command
 
