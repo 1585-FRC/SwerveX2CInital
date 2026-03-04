@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.IO;
 import frc.robot.subsystems.Hopper;
+import frc.robot.Constants;
 
 public class HopperCommand extends Command {
     // Declaring the Hopper Subsystem
@@ -38,11 +39,11 @@ public class HopperCommand extends Command {
     public void execute() {
         // Controller Mappings for Hopper buttons A and X
         if (m_controller.GetButtonA()) {
-            m_hopperSubsystem.HopperDrive(.5);
+            m_hopperSubsystem.HopperDrive(Constants.HopperConstants.HOPPER_SPEED_FWD);
         } else if (m_controller.GetButtonX()) {
-            m_hopperSubsystem.HopperDrive(-.5);
+            m_hopperSubsystem.HopperDrive(Constants.HopperConstants.HOPPER_SPEED_BWD);
         } else {
-            m_hopperSubsystem.HopperDrive(0);
+            m_hopperSubsystem.HopperDrive(Constants.HopperConstants.SPEED_ZERO);
         }
 
         isFinished = true;

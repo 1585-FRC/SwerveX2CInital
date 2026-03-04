@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.IO;
 import frc.robot.subsystems.Intake;
+import frc.robot.Constants;
 
 public class IntakeCommand extends Command {
     // Delclaring The Intake Subsystem
@@ -13,12 +14,6 @@ public class IntakeCommand extends Command {
 
     // Declaring Variable To Finish Command For Scheduler
     private boolean isFinished = false;
-
-    private final double FEEDER_SPEED_FWD = .3;
-    private final double FEEDER_SPEED_BWD = -.3;
-    private final double DROP_SPEED_FWD = .3;
-    private final double DROP_SPEED_BWD = -.85;
-    private final double SPEED_ZERO = 0.0;
 
     // Command Contructor
     public IntakeCommand(Intake intakeSubsystem, IO controller) {
@@ -42,20 +37,20 @@ public class IntakeCommand extends Command {
     public void execute() {
         // Controller Mappings for feeder on X and Y Button
         if (m_controller.GetButtonY()) {
-            m_intakeSubsystem.IntakeFeed(FEEDER_SPEED_FWD);
+            m_intakeSubsystem.IntakeFeed(Constants.IntakeConstants.FEEDER_SPEED_FWD);
         } else if (m_controller.GetButtonB()) {
-            m_intakeSubsystem.IntakeFeed(FEEDER_SPEED_BWD);
+            m_intakeSubsystem.IntakeFeed(Constants.IntakeConstants.FEEDER_SPEED_BWD);
         } else {
-            m_intakeSubsystem.IntakeFeed(SPEED_ZERO);
+            m_intakeSubsystem.IntakeFeed(Constants.IntakeConstants.SPEED_ZERO);
         }
 
         // Controller Mappings for Drop on left Bumper and Right Bumper
         if (m_controller.GetLeftBumper()) {
-            m_intakeSubsystem.IntakeDrop(DROP_SPEED_BWD);
+            m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.DROP_SPEED_BWD);
         } else if (m_controller.GetRightBumper()) {
-            m_intakeSubsystem.IntakeDrop(DROP_SPEED_FWD);
+            m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.DROP_SPEED_FWD);
         } else {
-            m_intakeSubsystem.IntakeDrop(SPEED_ZERO);
+            m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.SPEED_ZERO);
         }
 
         isFinished = true;

@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.IO;
 import frc.robot.subsystems.Shooter;
+import frc.robot.Constants;
 
 public class ShooterCommand extends Command {
     // Declaring the Shooter Subsystem
@@ -38,11 +39,11 @@ public class ShooterCommand extends Command {
         // Controller Mappings On Left and Right triggers for Shooter
 
         if (m_controller.GetRightTrigger()) {
-            m_shooterSubsystem.ShooterDrive(.5);
+            m_shooterSubsystem.ShooterDrive(Constants.ShooterConstants.SHOOTER_SPEED_FWD);
         } else if (m_controller.GetLeftTrigger()) {
-            m_shooterSubsystem.ShooterDrive(-.5);
+            m_shooterSubsystem.ShooterDrive(Constants.ShooterConstants.SHOOTER_SPEED_BWD);
         } else {
-            m_shooterSubsystem.ShooterDrive(0);
+            m_shooterSubsystem.ShooterDrive(Constants.ShooterConstants.SPEED_ZERO);
         }
 
         isFinished = true;

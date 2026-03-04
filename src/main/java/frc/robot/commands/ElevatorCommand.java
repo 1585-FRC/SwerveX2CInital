@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.IO;
 import frc.robot.subsystems.Elevator;
+import frc.robot.Constants;
 
 public class ElevatorCommand extends Command {
     // Declaring The Elevator Variable
@@ -36,11 +37,11 @@ public class ElevatorCommand extends Command {
     public void execute() {
         // Elevator Drive Command Mapped To Controller D Pad Up And Down
         if (m_controller.DPadUp()) {
-            m_elevatorSubsystem.ElevatorDrive(.15);
+            m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.ELEVATOR_SPEED_FWD);
         } else if (m_controller.DPadDown()) {
-            m_elevatorSubsystem.ElevatorDrive(-.15);
+            m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.ELEVATOR_SPEED_BWD);
         } else {
-            m_elevatorSubsystem.ElevatorDrive(0);
+            m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.SPEED_ZERO);
         }
 
         isFinished = true;
