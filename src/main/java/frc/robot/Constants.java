@@ -6,10 +6,10 @@ public class Constants {
 
     public static final class IntakeConstants {
         public static final boolean INTAKE_ENABLED = true;
-        public static final double FEEDER_SPEED_FWD = .3;
-        public static final double FEEDER_SPEED_BWD = -.3;
-        public static final double DROP_SPEED_FWD = .3;
+        public static final double FEEDER_SPEED_FWD = .45;
+        public static final double FEEDER_SPEED_BWD = -.45;
         public static final double DROP_SPEED_BWD = -.85;
+        public static final double DROP_SPEED_FWD = .3;
         public static final double SPEED_ZERO = 0.0;
         public static final int FEEDER_MOTOR_ID = 51;
         public static final int WINCH_MOTOR_ID = 52;
