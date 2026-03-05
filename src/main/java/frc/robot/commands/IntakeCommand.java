@@ -46,9 +46,9 @@ public class IntakeCommand extends Command {
 
         // Controller Mappings for Drop on left Bumper and Right Bumper
         if (m_controller.GetLeftBumper()) {
-            m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.DROP_SPEED_FWD);
+            m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.DROP_SPEED);
         } else if (m_controller.GetRightBumper()) {
-            m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.DROP_SPEED_BWD);
+            m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.LIFT_SPEED);
         } else {
             m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.SPEED_ZERO);
         }
