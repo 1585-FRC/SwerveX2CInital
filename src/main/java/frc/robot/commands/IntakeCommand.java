@@ -12,8 +12,8 @@ public class IntakeCommand extends Command {
     // Delcaring Controller
     private final IO m_controller;
 
-    // Declaring Variable To Finish Command For Scheduler
-    private boolean isFinished = false;
+    // Limit switch is read via the Intake subsystem
+
 
     // Command Contructor
     public IntakeCommand(Intake intakeSubsystem, IO controller) {
@@ -36,6 +36,7 @@ public class IntakeCommand extends Command {
     // Execute Command
     public void execute() {
         // Controller Mappings for feeder on X and Y Button
+
         if (m_controller.GetButtonY()) {
             m_intakeSubsystem.IntakeFeed(Constants.IntakeConstants.FEEDER_SPEED_FWD);
         } else if (m_controller.GetButtonB()) {
@@ -44,16 +45,26 @@ public class IntakeCommand extends Command {
             m_intakeSubsystem.IntakeFeed(Constants.IntakeConstants.SPEED_ZERO);
         }
 
-        // Controller Mappings for Drop on left Bumper and Right Bumper
+        // Limit switch logic: when the limit is triggered, disable the lift
+        // action. The polarity of DigitalInput#get() depends on wiring
+        // (normally-open vs normally-closed). Here we treat get() == true
+        // as "limit is pressed"; invert the check if your switch reports
+        // the opposite.
+    boolean limitPressed = m_intakeSubsystem.isLimitPressed();
+
         if (m_controller.GetLeftBumper()) {
+            // Always allow dropping (winch down)
             m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.DROP_SPEED);
         } else if (m_controller.GetRightBumper()) {
-            m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.LIFT_SPEED);
+            // Only allow lifting if the limit is NOT pressed
+            if (!limitPressed) {
+                m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.LIFT_SPEED);
+            } else {
+                m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.SPEED_ZERO);
+            }
         } else {
             m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.SPEED_ZERO);
         }
-
-        isFinished = true;
     }
 
     // setting is finished variable

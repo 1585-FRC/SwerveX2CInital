@@ -13,6 +13,7 @@ public class Constants {
         public static final double SPEED_ZERO = 0.0;
         public static final int FEEDER_MOTOR_ID = 51;
         public static final int WINCH_MOTOR_ID = 52;
+        public static final int INTAKE_LIMIT_SWITCH_CHANNEL = 0;
     }
 
     public static final class ShooterConstants {

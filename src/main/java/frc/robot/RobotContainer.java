@@ -95,15 +95,6 @@ public class RobotContainer {
         public RobotContainer() {
                 // NamedCommands.registerCommand("Score", new ScoreCommand());
 
-                if(enableDriveSystem)
-                {
-                        autoChooser = AutoBuilder.buildAutoChooser("Tests");
-                        SmartDashboard.putData("Auto Mode", autoChooser);
-
-                         // Warmup PathPlanner to avoid Java pauses
-                        FollowPathCommand.warmupCommand().schedule();
-                }
-
                 configureBindings();
 
         
@@ -112,7 +103,7 @@ public class RobotContainer {
 
                 // Initialize Subsystems and Commands based on Constant Value
                 if (Constants.IntakeConstants.INTAKE_ENABLED) {
-                        m_intake = new Intake(Constants.IntakeConstants.FEEDER_MOTOR_ID, Constants.IntakeConstants.WINCH_MOTOR_ID);
+                        m_intake = new Intake(Constants.IntakeConstants.FEEDER_MOTOR_ID, Constants.IntakeConstants.WINCH_MOTOR_ID, Constants.IntakeConstants.INTAKE_LIMIT_SWITCH_CHANNEL);
                         m_intakeCommand = new IntakeCommand(m_intake, m_controller);
                         m_intake.setDefaultCommand((m_intakeCommand));
                 }
@@ -133,6 +124,39 @@ public class RobotContainer {
                         m_elevator = new Elevator(Constants.ElevatorConstants.ELEVATOR_MOTOR_ID_1, Constants.ElevatorConstants.ELEVATOR_MOTOR_ID_2);
                         m_elevatorCommand = new ElevatorCommand(m_elevator, m_controller);
                         m_elevator.setDefaultCommand((m_elevatorCommand));
+                }
+
+                // Register PathPlanner named command(s) after subsystems are created.
+                // This maps the "Score" named event in PathPlanner autos to a command
+                // that spins up the shooter using the existing shooter constants.
+                if (m_shooter != null) {
+                        // Register a command returned by the Shooter subsystem that
+                        // runs the shooter at the configured speed. PathPlanner will
+                        // schedule/cancel this command based on named events and waits.
+                        NamedCommands.registerCommand(
+                                        "Score",
+                                        m_shooter.ShooterCommand(Constants.ShooterConstants.SHOOTER_SPEED_FWD)
+                        );
+                }
+
+                if (m_intake != null) {
+                        // Register the Intake subsystem's command for feeding. PathPlanner
+                        // will schedule/cancel it using its named events and waits.
+                        NamedCommands.registerCommand(
+                                        "Intake",
+                                        m_intake.IntakeFeeder(Constants.IntakeConstants.FEEDER_SPEED_FWD)
+                        );
+                }
+
+                // Now that named commands are registered and subsystems are created,
+                // build the AutoChooser so PathPlanner resolves named events correctly.
+                if (enableDriveSystem)
+                {
+                        autoChooser = AutoBuilder.buildAutoChooser("Tests");
+                        SmartDashboard.putData("Auto Mode", autoChooser);
+
+                         // Warmup PathPlanner to avoid Java pauses
+                        FollowPathCommand.warmupCommand().schedule();
                 }
         }
 
