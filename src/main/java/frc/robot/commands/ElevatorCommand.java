@@ -36,10 +36,17 @@ public class ElevatorCommand extends Command {
     // Execute Command
     public void execute() {
         // Elevator Drive Command Mapped To Controller D Pad Up And Down
+
+        boolean innerLimitPressed = m_elevatorSubsystem.isInnerLimitSwitchPressed();
+        boolean outerLimitPressed = m_elevatorSubsystem.isOuterLimitSwitchPressed();
         if (m_controller.DPadUp()) {
-            m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.ELEVATOR_SPEED_FWD);
+            if (!outerLimitPressed || !innerLimitPressed) {
+                m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.ELEVATOR_SPEED_UP);
+            } else {
+                m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.SPEED_ZERO);
+            }
         } else if (m_controller.DPadDown()) {
-            m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.ELEVATOR_SPEED_BWD);
+            m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.ELEVATOR_SPEED_DOWN);
         } else {
             m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.SPEED_ZERO);
         }
