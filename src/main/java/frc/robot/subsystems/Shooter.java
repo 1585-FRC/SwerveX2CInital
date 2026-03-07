@@ -22,16 +22,16 @@ public class Shooter extends SubsystemBase {
     }
 
     // Creating Command For Shooter
-    public Command ShooterCommand(double ShooterSpeed) {
+    public Command ShooterCommand(double BottomShooterSpeed, double TopShooterSpeed) {
         return run(
                 () -> {
-                    this.ShooterDrive(ShooterSpeed);
+                    this.ShooterDrive(BottomShooterSpeed, TopShooterSpeed);
                 });
     }
 
     // Setting Parameters For Shooter Command
-    public void ShooterDrive(double ShooterSpeed) {
-        m_shooterMotorTop.set(ShooterSpeed);
-        m_shooterMotorBottom.set(ShooterSpeed);
+    public void ShooterDrive(double BottomShooterSpeed, double TopShooterSpeed) {
+        m_shooterMotorTop.set(TopShooterSpeed);
+        m_shooterMotorBottom.set(BottomShooterSpeed);
     }
 }

@@ -24,8 +24,10 @@ public class Constants {
 
     public static final class ShooterConstants {
         public static final boolean SHOOTER_ENABLED = true;
-        public static final double SHOOTER_SPEED_FWD = .65;
-        public static final double SHOOTER_SPEED_BWD = -.65;
+        public static final double TOP_SHOOTER_SPEED_FWD = .65;
+        public static final double BOTTOM_SHOOTER_SPEED_FWD = .65;
+        public static final double TOP_SHOOTER_SPEED_BWD = -.65;
+        public static final double BOTTOM_SHOOTER_SPEED_BWD = -.65;
         public static final double SPEED_ZERO = 0.0;
         public static final int TOP_SHOOTER_MOTOR_ID = 54;
         public static final int BOTTOM_SHOOTER_MOTOR_ID = 55;

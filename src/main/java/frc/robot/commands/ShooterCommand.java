@@ -39,11 +39,11 @@ public class ShooterCommand extends Command {
         // Controller Mappings On Left and Right triggers for Shooter
 
         if (m_controller.GetRightTrigger()) {
-            m_shooterSubsystem.ShooterDrive(Constants.ShooterConstants.SHOOTER_SPEED_FWD);
+            m_shooterSubsystem.ShooterDrive(Constants.ShooterConstants.BOTTOM_SHOOTER_SPEED_FWD, Constants.ShooterConstants.TOP_SHOOTER_SPEED_FWD);
         } else if (m_controller.GetLeftTrigger()) {
-            m_shooterSubsystem.ShooterDrive(Constants.ShooterConstants.SHOOTER_SPEED_BWD);
+            m_shooterSubsystem.ShooterDrive(Constants.ShooterConstants.BOTTOM_SHOOTER_SPEED_BWD, Constants.ShooterConstants.TOP_SHOOTER_SPEED_BWD);
         } else {
-            m_shooterSubsystem.ShooterDrive(Constants.ShooterConstants.SPEED_ZERO);
+            m_shooterSubsystem.ShooterDrive(Constants.ShooterConstants.SPEED_ZERO, Constants.ShooterConstants.SPEED_ZERO);
         }
 
         isFinished = true;

@@ -40,9 +40,9 @@ public class Elevator extends SubsystemBase {
 
     // Setting Parameters For Elevator Command
     public void ElevatorDrive(double ElevatorSpeed) {
-        double elevatorpotentiometerLimitSwitch = m_elevatorPotentiometer.get();
+        double elevatorPotentiometerLimitSwitch = m_elevatorPotentiometer.get();
 
-        if (elevatorpotentiometerLimitSwitch < Constants.ElevatorConstants.ELEVATOR_LIMIT_SWITCH_THRESHOLD) {
+        if (elevatorPotentiometerLimitSwitch < Constants.ElevatorConstants.ELEVATOR_LIMIT_SWITCH_THRESHOLD) {
             if (ElevatorSpeed < 0) {
                 m_elevatorMotor.set(0);
                 return;

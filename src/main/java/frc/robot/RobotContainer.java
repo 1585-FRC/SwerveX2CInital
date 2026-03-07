@@ -112,7 +112,7 @@ public class RobotContainer {
                         // schedule/cancel this command based on named events and waits.
                         NamedCommands.registerCommand(
                                         "Score",
-                                        m_shooter.ShooterCommand(Constants.ShooterConstants.SHOOTER_SPEED_FWD)
+                                        m_shooter.ShooterCommand(Constants.ShooterConstants.BOTTOM_SHOOTER_SPEED_FWD, Constants.ShooterConstants.TOP_SHOOTER_SPEED_FWD)
                         );
                 }
 
