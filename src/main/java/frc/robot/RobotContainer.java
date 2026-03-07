@@ -108,7 +108,7 @@ public class RobotContainer {
                 }
 
                  if (Constants.ElevatorConstants.ELEVATOR_ENABLED) {
-                        m_elevator = new Elevator(Constants.ElevatorConstants.ELEVATOR_MOTOR_ID_1, Constants.ElevatorConstants.ELEVATOR_MOTOR_ID_2, Constants.ElevatorConstants.ELEVATOR_LIMIT_SWITCH_INNER_CHANNEL, Constants.ElevatorConstants.ELEVATOR_LIMIT_SWITCH_OUTER_CHANNEL);
+                        m_elevator = new Elevator(Constants.ElevatorConstants.ELEVATOR_MOTOR_ID_1, Constants.ElevatorConstants.ELEVATOR_LIMIT_SWITCH_INNER_CHANNEL, Constants.ElevatorConstants.ELEVATOR_LIMIT_SWITCH_OUTER_CHANNEL, Constants.ElevatorConstants.ANALOG_POTENTIOMETER_CHANNEL);
                         m_elevatorCommand = new ElevatorCommand(m_elevator, m_controller);
                         m_elevator.setDefaultCommand((m_elevatorCommand));
                 }

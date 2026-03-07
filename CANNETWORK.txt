@@ -22,7 +22,4 @@
 54 - ShooterMotorTop
 55 - ShooterMotorBottom
 
-58 - HopperMotor
-
 61 - ElevatorMotorOne
-62 - ElevatorMotorTwo

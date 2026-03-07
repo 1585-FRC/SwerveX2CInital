@@ -37,6 +37,8 @@ public class ElevatorCommand extends Command {
     public void execute() {
         // Elevator Drive Command Mapped To Controller D Pad Up And Down
 
+        System.out.println("Elevator Position: " + m_elevatorSubsystem.getElevatorPosition());
+
         boolean innerLimitPressed = m_elevatorSubsystem.isInnerLimitSwitchPressed();
         boolean outerLimitPressed = m_elevatorSubsystem.isOuterLimitSwitchPressed();
         if (m_controller.DPadUp()) {
