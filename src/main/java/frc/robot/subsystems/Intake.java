@@ -62,6 +62,10 @@ public class Intake extends SubsystemBase {
                 });
     }
 
+    public boolean isIntakeLimitSwitchPressed() {
+        return m_intakeLimitSwitch.get();
+    }
+
     // Setting Parameters For Intake Drop Command
     public void IntakeFeed(double FeedSpeed) {
         m_feedingMotor.set(FeedSpeed);

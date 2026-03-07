@@ -15,19 +15,13 @@ public class Elevator extends SubsystemBase {
     // Calling Controller
     private Elevator m_controller;
 
-    // Calling Limit Switches
-    private final DigitalInput m_elevatorLimitSwitchInner;
-    private final DigitalInput m_elevatorLimitSwitchOuter;
-
     // Calling Potentiometer
     private final AnalogPotentiometer m_elevatorPotentiometer;
 
     // Constructor for susbsystem
-    public Elevator(int ElevatorMotorOneChannelCAN, int ElevatorLimitSwitchInnerChannel, int ElevatorLimitSwitchOuterChannel, int AnalogPotentiometerChannel) {
+    public Elevator(int ElevatorMotorOneChannelCAN, int AnalogPotentiometerChannel) {
         // Creating the elevator motor object
         m_elevatorMotor = new SparkMax(ElevatorMotorOneChannelCAN, SparkLowLevel.MotorType.kBrushed);
-        m_elevatorLimitSwitchInner = new DigitalInput(ElevatorLimitSwitchInnerChannel);
-        m_elevatorLimitSwitchOuter = new DigitalInput(ElevatorLimitSwitchOuterChannel);
         m_elevatorPotentiometer = new AnalogPotentiometer(AnalogPotentiometerChannel);
     }
 
@@ -41,14 +35,6 @@ public class Elevator extends SubsystemBase {
 
     public double getElevatorPosition() {
         return m_elevatorPotentiometer.get();
-    }
-
-    public boolean isInnerLimitSwitchPressed() {
-        return m_elevatorLimitSwitchInner.get();
-    }
-
-    public boolean isOuterLimitSwitchPressed() {
-        return m_elevatorLimitSwitchOuter.get();
     }
 
     // Setting Parameters For Elevator Command

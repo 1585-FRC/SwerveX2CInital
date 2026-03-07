@@ -35,18 +35,8 @@ public class ElevatorCommand extends Command {
     @Override
     // Execute Command
     public void execute() {
-        // Elevator Drive Command Mapped To Controller D Pad Up And Down
-
-        System.out.println("Elevator Position: " + m_elevatorSubsystem.getElevatorPosition());
-
-        boolean innerLimitPressed = m_elevatorSubsystem.isInnerLimitSwitchPressed();
-        boolean outerLimitPressed = m_elevatorSubsystem.isOuterLimitSwitchPressed();
         if (m_controller.DPadUp()) {
-            if (!outerLimitPressed || !innerLimitPressed) {
-                m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.ELEVATOR_SPEED_UP);
-            } else {
-                m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.SPEED_ZERO);
-            }
+            m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.ELEVATOR_SPEED_UP);
         } else if (m_controller.DPadDown()) {
             m_elevatorSubsystem.ElevatorDrive(Constants.ElevatorConstants.ELEVATOR_SPEED_DOWN);
         } else {
