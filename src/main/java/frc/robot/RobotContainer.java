@@ -77,7 +77,6 @@ public class RobotContainer {
         private SendableChooser<Command> autoChooser = null;
 
         public RobotContainer() {
-                // NamedCommands.registerCommand("Score", new ScoreCommand());
 
                 configureBindings();
 
