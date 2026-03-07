@@ -4,6 +4,12 @@ public class Constants {
     private Constants() {
     }
 
+    public static final class RobotContainerConstants {
+        public static final double CONTROLLER_DEADZONE = 0.2;
+        public static final int DRIVE_CONTROLLER_PORT = 0;
+        public static final int OPERATOR_CONTROLLER_PORT = 1;
+    }
+
     public static final class IntakeConstants {
         public static final boolean INTAKE_ENABLED = false;
         public static final double FEEDER_SPEED_FWD = .45;

@@ -63,12 +63,12 @@ public class RobotContainer {
 
         private final Telemetry logger = new Telemetry(MaxSpeed);
 
-        private final CommandXboxController joystick = new CommandXboxController(0);
+        private final CommandXboxController joystick = new CommandXboxController(Constants.RobotContainerConstants.DRIVE_CONTROLLER_PORT);
 
         // Apply a small deadzone for joystick axes (only for controller on port 0)
         // Inputs with absolute value <= 0.2 are treated as zero.
         private static double applyJoystickDeadzone(double v) {
-                return Math.abs(v) > 0.2 ? v : 0.0;
+                return Math.abs(v) > Constants.RobotContainerConstants.CONTROLLER_DEADZONE ? v : 0.0;
         }
 
         public final CommandSwerveDrivetrain drivetrain = enableDriveSystem ? TunerConstants.createDrivetrain() : null;

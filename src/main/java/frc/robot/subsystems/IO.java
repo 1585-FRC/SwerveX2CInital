@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.Constants;
 
 public class IO extends SubsystemBase {
 
@@ -20,7 +21,7 @@ public class IO extends SubsystemBase {
     // D Pad Down: Elevator Down
 
     // Calls Xbox Controller
-    public CommandXboxController m_controller = new CommandXboxController(1);
+    public CommandXboxController m_controller = new CommandXboxController(Constants.RobotContainerConstants.OPERATOR_CONTROLLER_PORT);
 
     // Get 'B' button on Xbox Controller
     public boolean GetButtonB() {
