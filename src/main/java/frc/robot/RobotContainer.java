@@ -44,15 +44,6 @@ public class RobotContainer {
         private ShooterCommand m_shooterCommand = null;
         private ElevatorCommand m_elevatorCommand = null;
 
-        // private final Intake m_intake;
-        // private final Shooter m_shooter;
-        // private final Elevator m_elevator;
-
-        // Declare Commands Variables
-        // private final IntakeCommand m_intakeCommand;
-        // private final ShooterCommand m_shooterCommand;
-        // private final ElevatorCommand m_elevatorCommand;
-
         private double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired
                                                                                             // top
                                                                                             // speed
