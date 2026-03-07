@@ -5,7 +5,7 @@ public class Constants {
     }
 
     public static final class IntakeConstants {
-        public static final boolean INTAKE_ENABLED = true;
+        public static final boolean INTAKE_ENABLED = false;
         public static final double FEEDER_SPEED_FWD = .45;
         public static final double FEEDER_SPEED_BWD = -.45;
         public static final double DROP_SPEED = -.85;
@@ -26,13 +26,14 @@ public class Constants {
     }
 
     public static final class ElevatorConstants {
-        public static final boolean ELEVATOR_ENABLED = false;
-        public static final double ELEVATOR_SPEED_UP = .3;
-        public static final double ELEVATOR_SPEED_DOWN = -.3;
+        public static final boolean ELEVATOR_ENABLED = true;
+        public static final double ELEVATOR_SPEED_DOWN = .3;
+        public static final double ELEVATOR_SPEED_UP = -.3;
         public static final double SPEED_ZERO = 0.0;
         public static final int ELEVATOR_MOTOR_ID = 61;
         public static final int ELEVATOR_LIMIT_SWITCH_INNER_CHANNEL = 1;
         public static final int ELEVATOR_LIMIT_SWITCH_OUTER_CHANNEL = 2;
         public static final int ANALOG_POTENTIOMETER_CHANNEL = 0;
+        public static final double ELEVATOR_LIMIT_SWITCH_THRESHOLD = 0.17;
     }
 }
