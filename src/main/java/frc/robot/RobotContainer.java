@@ -30,7 +30,7 @@ import frc.robot.Constants;
 public class RobotContainer {
 
 
-        private boolean enableDriveSystem = true;
+        private boolean enableDriveSystem = false;;
         // Declare Subsystems Varaiables
         private final IO m_controller = new IO();
 
@@ -38,23 +38,19 @@ public class RobotContainer {
         // These are intentionally not final so they can be left null when a subsystem is disabled.
         private Intake m_intake = null;
         private Shooter m_shooter = null;
-        private Hopper m_hopper = null;
         private Elevator m_elevator = null;
 
         private IntakeCommand m_intakeCommand = null;
         private ShooterCommand m_shooterCommand = null;
-        private HopperCommand m_hopperCommand = null;
         private ElevatorCommand m_elevatorCommand = null;
 
         // private final Intake m_intake;
         // private final Shooter m_shooter;
-        // private final Hopper m_hopper;
         // private final Elevator m_elevator;
 
         // Declare Commands Variables
         // private final IntakeCommand m_intakeCommand;
         // private final ShooterCommand m_shooterCommand;
-        // private final HopperCommand m_hopperCommand;
         // private final ElevatorCommand m_elevatorCommand;
 
         private double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired
@@ -109,12 +105,6 @@ public class RobotContainer {
                         m_shooter = new Shooter(Constants.ShooterConstants.TOP_SHOOTER_MOTOR_ID, Constants.ShooterConstants.BOTTOM_SHOOTER_MOTOR_ID);   
                         m_shooterCommand = new ShooterCommand(m_shooter, m_controller);
                         m_shooter.setDefaultCommand((m_shooterCommand));
-                }
-
-                 if (Constants.HopperConstants.HOPPER_ENABLED) {
-                        m_hopper = new Hopper(Constants.HopperConstants.HOPPER_MOTOR_ID);
-                        m_hopperCommand = new HopperCommand(m_hopper, m_controller);
-                        m_hopper.setDefaultCommand((m_hopperCommand));
                 }
 
                  if (Constants.ElevatorConstants.ELEVATOR_ENABLED) {

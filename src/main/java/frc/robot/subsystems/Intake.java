@@ -39,15 +39,19 @@ public class Intake extends SubsystemBase {
 
     // Setting Parameters For Intake Drop Command
     public void IntakeDrop(double DropSpeed) {
-        m_winchMotor.set(DropSpeed);
-    }
+        boolean intakeLimitSwitch = m_intakeLimitSwitch.get();
 
-    /**
-     * Returns the raw value of the intake limit switch.
-     * Note: the polarity depends on wiring (normally-open vs closed).
-     */
-    public boolean isLimitPressed() {
-        return m_intakeLimitSwitch.get();
+        if(!intakeLimitSwitch)
+        {
+            // System.out.println("Top Limit Hit");
+            if(DropSpeed > 0)
+            {
+                m_winchMotor.set(0);
+                return;
+            }
+        }
+
+        m_winchMotor.set(DropSpeed);
     }
 
     // Creating Command For Intake Feed

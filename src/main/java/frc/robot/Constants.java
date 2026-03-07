@@ -17,20 +17,12 @@ public class Constants {
     }
 
     public static final class ShooterConstants {
-        public static final boolean SHOOTER_ENABLED = true;
+        public static final boolean SHOOTER_ENABLED = false;
         public static final double SHOOTER_SPEED_FWD = .4;
         public static final double SHOOTER_SPEED_BWD = -.4;
         public static final double SPEED_ZERO = 0.0;
         public static final int TOP_SHOOTER_MOTOR_ID = 54;
         public static final int BOTTOM_SHOOTER_MOTOR_ID = 55;
-    }
-
-    public static final class HopperConstants {
-        public static final boolean HOPPER_ENABLED = false;
-        public static final double HOPPER_SPEED_FWD = .3;
-        public static final double HOPPER_SPEED_BWD = -.3;
-        public static final double SPEED_ZERO = 0.0;
-        public static final int HOPPER_MOTOR_ID = 58;
     }
 
     public static final class ElevatorConstants {

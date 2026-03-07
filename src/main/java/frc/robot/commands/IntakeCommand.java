@@ -50,18 +50,12 @@ public class IntakeCommand extends Command {
         // (normally-open vs normally-closed). Here we treat get() == true
         // as "limit is pressed"; invert the check if your switch reports
         // the opposite.
-    boolean limitPressed = m_intakeSubsystem.isLimitPressed();
 
         if (m_controller.GetLeftBumper()) {
             // Always allow dropping (winch down)
             m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.DROP_SPEED);
         } else if (m_controller.GetRightBumper()) {
-            // Only allow lifting if the limit is NOT pressed
-            if (!limitPressed) {
-                m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.LIFT_SPEED);
-            } else {
-                m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.SPEED_ZERO);
-            }
+            m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.LIFT_SPEED);
         } else {
             m_intakeSubsystem.IntakeDrop(Constants.IntakeConstants.SPEED_ZERO);
         }
