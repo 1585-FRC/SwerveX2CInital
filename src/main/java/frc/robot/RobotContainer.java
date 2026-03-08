@@ -129,7 +129,7 @@ public class RobotContainer {
                 // build the AutoChooser so PathPlanner resolves named events correctly.
                 if (enableDriveSystem)
                 {
-                        autoChooser = AutoBuilder.buildAutoChooser("Tests");
+                        autoChooser = AutoBuilder.buildAutoChooser("Intake-Score");
                         SmartDashboard.putData("Auto Mode", autoChooser);
 
                          // Warmup PathPlanner to avoid Java pauses

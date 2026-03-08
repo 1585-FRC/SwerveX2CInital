@@ -8,17 +8,15 @@
     "Intake-Over_Paths",
     "Intake-Pause_Paths",
     "Intake-Score_Paths",
-    "Leave-Zone_Paths",
-    "PathPlanner-Root_Paths"
+    "Leave-Zone_Paths"
   ],
   "autoFolders": [
     "Ball-Mess_Autos",
-    "Intake-Score_Autos",
-    "Leave-Zone_Autos",
     "Drive-Score_Autos",
     "Intake-Over_Autos",
     "Intake-Pause_Autos",
-    "PathPlanner-Root_Autos"
+    "Intake-Score_Autos",
+    "Leave-Zone_Autos"
   ],
   "defaultMaxVel": 3.5,
   "defaultMaxAccel": 7.0,
