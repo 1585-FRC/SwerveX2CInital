@@ -16,17 +16,15 @@ public class Intake extends SubsystemBase {
     // Declaring Spark Max and giving variable
     private final SparkMax m_feedingMotor;
     private final SparkMax m_winchMotor;
-    private final DigitalInput m_intakeLimitSwitch;
 
     // Calling controller
     private Intake m_controller;
 
     // Contructor for subsystem
-    public Intake(int FeedingMotorChannelCAN, int WinchMotorChannelCAN, int IntakeLimitSwitchChannelDIO) {
+    public Intake(int FeedingMotorChannelCAN, int WinchMotorChannelCAN) {
         // Creating the intake motor object
         m_feedingMotor = new SparkMax(FeedingMotorChannelCAN, SparkLowLevel.MotorType.kBrushless);
         m_winchMotor = new SparkMax(WinchMotorChannelCAN, SparkLowLevel.MotorType.kBrushed);
-        m_intakeLimitSwitch = new DigitalInput(IntakeLimitSwitchChannelDIO);
     }
 
     // Creating Command For Intake Drop
@@ -39,18 +37,6 @@ public class Intake extends SubsystemBase {
 
     // Setting Parameters For Intake Drop Command
     public void IntakeDrop(double DropSpeed) {
-        boolean intakeLimitSwitch = m_intakeLimitSwitch.get();
-
-        if(!intakeLimitSwitch)
-        {
-            // System.out.println("Top Limit Hit");
-            if(DropSpeed > 0)
-            {
-                m_winchMotor.set(0);
-                return;
-            }
-        }
-
         m_winchMotor.set(DropSpeed);
     }
 
@@ -60,10 +46,6 @@ public class Intake extends SubsystemBase {
                 () -> {
                     this.IntakeFeed(FeedSpeed);
                 });
-    }
-
-    public boolean isIntakeLimitSwitchPressed() {
-        return m_intakeLimitSwitch.get();
     }
 
     // Setting Parameters For Intake Drop Command

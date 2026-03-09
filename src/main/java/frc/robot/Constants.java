@@ -19,7 +19,6 @@ public class Constants {
         public static final double SPEED_ZERO = 0.0;
         public static final int FEEDER_MOTOR_ID = 51;
         public static final int WINCH_MOTOR_ID = 52;
-        public static final int INTAKE_LIMIT_SWITCH_CHANNEL = 0;
     }
 
     public static final class ShooterConstants {
@@ -34,14 +33,12 @@ public class Constants {
     }
 
     public static final class ElevatorConstants {
-        public static final boolean ELEVATOR_ENABLED = false;
+        public static final boolean ELEVATOR_ENABLED = true;
         public static final double ELEVATOR_SPEED_DOWN = .3;
         public static final double ELEVATOR_SPEED_UP = -.3;
         public static final double SPEED_ZERO = 0.0;
         public static final int ELEVATOR_MOTOR_ID = 61;
-        public static final int ELEVATOR_LIMIT_SWITCH_INNER_CHANNEL = 1;
-        public static final int ELEVATOR_LIMIT_SWITCH_OUTER_CHANNEL = 2;
         public static final int ANALOG_POTENTIOMETER_CHANNEL = 0;
-        public static final double ELEVATOR_LIMIT_SWITCH_THRESHOLD = 0.17;
+        public static final double ELEVATOR_LIMIT_SWITCH_THRESHOLD = 0.19;
     }
 }

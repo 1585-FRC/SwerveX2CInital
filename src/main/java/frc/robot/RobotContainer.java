@@ -86,7 +86,7 @@ public class RobotContainer {
 
                 // Initialize Subsystems and Commands based on Constant Value
                 if (Constants.IntakeConstants.INTAKE_ENABLED) {
-                        m_intake = new Intake(Constants.IntakeConstants.FEEDER_MOTOR_ID, Constants.IntakeConstants.WINCH_MOTOR_ID, Constants.IntakeConstants.INTAKE_LIMIT_SWITCH_CHANNEL);
+                        m_intake = new Intake(Constants.IntakeConstants.FEEDER_MOTOR_ID, Constants.IntakeConstants.WINCH_MOTOR_ID);
                         m_intakeCommand = new IntakeCommand(m_intake, m_controller);
                         m_intake.setDefaultCommand((m_intakeCommand));
                 }
