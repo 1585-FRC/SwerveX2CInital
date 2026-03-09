@@ -42,8 +42,6 @@ public class Elevator extends SubsystemBase {
     public void ElevatorDrive(double ElevatorSpeed) {
         double elevatorPotentiometerLimitSwitch = m_elevatorPotentiometer.get();
 
-        System.out.println(m_elevatorPotentiometer.get());
-
         if (elevatorPotentiometerLimitSwitch < Constants.ElevatorConstants.ELEVATOR_LIMIT_SWITCH_THRESHOLD) {
             if (ElevatorSpeed < 0) {
                 m_elevatorMotor.set(0);
