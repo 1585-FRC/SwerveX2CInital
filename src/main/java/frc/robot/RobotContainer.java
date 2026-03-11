@@ -30,7 +30,7 @@ import frc.robot.Constants;
 public class RobotContainer {
 
 
-        private boolean enableDriveSystem = true;
+        private boolean enableDriveSystem = Constants.RobotContainerConstants.DRIVE_ENABLED;
         // Declare Subsystems Varaiables
         private final IO m_controller = new IO();
 
