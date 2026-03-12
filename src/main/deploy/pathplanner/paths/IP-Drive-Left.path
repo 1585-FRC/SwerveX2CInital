@@ -47,7 +47,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 179.04912001406353
+    "rotation": 0.0
   },
   "reversed": false,
   "folder": "Intake-Pause_Paths",
