@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.2951845069611476,
-        "y": 3.174320772176065
+        "x": 3.580397727272727,
+        "y": 4.035
       },
       "isLocked": false,
       "linkedName": null
@@ -20,15 +20,24 @@
         "y": 4.014386363636364
       },
       "prevControl": {
-        "x": 3.0762353134111473,
-        "y": 3.6211054572265575
+        "x": 3.5494772727272723,
+        "y": 4.045306818181818
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.19654088050314464,
+      "rotationDegrees": 0.0
+    },
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": 150.0
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -42,7 +51,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 180.0
   },
   "reversed": false,
   "folder": "Drive-Score_Paths",

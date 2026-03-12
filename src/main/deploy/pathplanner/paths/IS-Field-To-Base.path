@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.7757499999999995,
-        "y": 6.003602272727274
+        "x": 5.569613636363636,
+        "y": 5.653170454545455
       },
       "isLocked": false,
       "linkedName": null
@@ -20,8 +20,8 @@
         "y": 3.9628522727272726
       },
       "prevControl": {
-        "x": 3.497943181818181,
-        "y": 6.158204545454546
+        "x": 3.3433409090909088,
+        "y": 5.756238636363637
       },
       "nextControl": null,
       "isLocked": false,
@@ -47,7 +47,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": 180.0
   },
   "reversed": false,
   "folder": "Intake-Score_Paths",
