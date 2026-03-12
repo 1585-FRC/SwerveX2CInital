@@ -41,6 +41,6 @@ public class Constants {
         public static final int ELEVATOR_MOTOR_ID = 61;
         public static final int ANALOG_POTENTIOMETER_CHANNEL = 0;
         public static final boolean ELEVATOR_DEBUG_ENABLED = false;
-        public static final double ELEVATOR_LIMIT_SWITCH_THRESHOLD = 0.19;
+        public static final double ELEVATOR_LIMIT_SWITCH_THRESHOLD = 0.23;
     }
 }
