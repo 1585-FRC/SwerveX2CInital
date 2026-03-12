@@ -14,7 +14,7 @@ import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.FollowPathCommand;
 
 import edu.wpi.first.math.geometry.Rotation2d;
- 
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -29,13 +29,14 @@ import frc.robot.Constants;
 
 public class RobotContainer {
 
-
         private boolean enableDriveSystem = Constants.RobotContainerConstants.DRIVE_ENABLED;
         // Declare Subsystems Varaiables
         private final IO m_controller = new IO();
 
-        // Subsystem and command declarations (may be null if the subsystem is disabled via Constants)
-        // These are intentionally not final so they can be left null when a subsystem is disabled.
+        // Subsystem and command declarations (may be null if the subsystem is disabled
+        // via Constants)
+        // These are intentionally not final so they can be left null when a subsystem
+        // is disabled.
         private Intake m_intake = null;
         private Shooter m_shooter = null;
         private Elevator m_elevator = null;
@@ -63,7 +64,8 @@ public class RobotContainer {
 
         private final Telemetry logger = new Telemetry(MaxSpeed);
 
-        private final CommandXboxController joystick = new CommandXboxController(Constants.RobotContainerConstants.DRIVE_CONTROLLER_PORT);
+        private final CommandXboxController joystick = new CommandXboxController(
+                        Constants.RobotContainerConstants.DRIVE_CONTROLLER_PORT);
 
         // Apply a small deadzone for joystick axes (only for controller on port 0)
         // Inputs with absolute value <= 0.2 are treated as zero.
@@ -80,25 +82,26 @@ public class RobotContainer {
 
                 configureBindings();
 
-        
-
                 // Create Object for Subystems
 
                 // Initialize Subsystems and Commands based on Constant Value
                 if (Constants.IntakeConstants.INTAKE_ENABLED) {
-                        m_intake = new Intake(Constants.IntakeConstants.FEEDER_MOTOR_ID, Constants.IntakeConstants.WINCH_MOTOR_ID);
+                        m_intake = new Intake(Constants.IntakeConstants.FEEDER_MOTOR_ID,
+                                        Constants.IntakeConstants.WINCH_MOTOR_ID);
                         m_intakeCommand = new IntakeCommand(m_intake, m_controller);
                         m_intake.setDefaultCommand((m_intakeCommand));
                 }
 
-                 if (Constants.ShooterConstants.SHOOTER_ENABLED) {
-                        m_shooter = new Shooter(Constants.ShooterConstants.TOP_SHOOTER_MOTOR_ID, Constants.ShooterConstants.BOTTOM_SHOOTER_MOTOR_ID);   
+                if (Constants.ShooterConstants.SHOOTER_ENABLED) {
+                        m_shooter = new Shooter(Constants.ShooterConstants.TOP_SHOOTER_MOTOR_ID,
+                                        Constants.ShooterConstants.BOTTOM_SHOOTER_MOTOR_ID);
                         m_shooterCommand = new ShooterCommand(m_shooter, m_controller);
                         m_shooter.setDefaultCommand((m_shooterCommand));
                 }
 
-                 if (Constants.ElevatorConstants.ELEVATOR_ENABLED) {
-                        m_elevator = new Elevator(Constants.ElevatorConstants.ELEVATOR_MOTOR_ID, Constants.ElevatorConstants.ANALOG_POTENTIOMETER_CHANNEL);
+                if (Constants.ElevatorConstants.ELEVATOR_ENABLED) {
+                        m_elevator = new Elevator(Constants.ElevatorConstants.ELEVATOR_MOTOR_ID,
+                                        Constants.ElevatorConstants.ANALOG_POTENTIOMETER_CHANNEL);
                         m_elevatorCommand = new ElevatorCommand(m_elevator, m_controller);
                         m_elevator.setDefaultCommand((m_elevatorCommand));
                 }
@@ -112,8 +115,8 @@ public class RobotContainer {
                         // schedule/cancel this command based on named events and waits.
                         NamedCommands.registerCommand(
                                         "Score",
-                                        m_shooter.ShooterCommand(Constants.ShooterConstants.BOTTOM_SHOOTER_SPEED_FWD, Constants.ShooterConstants.TOP_SHOOTER_SPEED_FWD)
-                        );
+                                        m_shooter.ShooterCommand(Constants.ShooterConstants.BOTTOM_SHOOTER_SPEED_FWD,
+                                                        Constants.ShooterConstants.TOP_SHOOTER_SPEED_FWD));
                 }
 
                 if (m_intake != null) {
@@ -121,26 +124,29 @@ public class RobotContainer {
                         // will schedule/cancel it using its named events and waits.
                         NamedCommands.registerCommand(
                                         "Intake",
-                                        m_intake.IntakeFeeder(Constants.IntakeConstants.FEEDER_SPEED_FWD)
-                        );
+                                        m_intake.IntakeFeeder(Constants.IntakeConstants.FEEDER_SPEED_FWD));
+                }
+
+                if (m_intake != null) {
+                        NamedCommands.registerCommand(
+                                        "IntakeDrop",
+                                        m_intake.IntakeDrops(Constants.IntakeConstants.DROP_SPEED));
                 }
 
                 // Now that named commands are registered and subsystems are created,
                 // build the AutoChooser so PathPlanner resolves named events correctly.
-                if (enableDriveSystem)
-                {
+                if (enableDriveSystem) {
                         autoChooser = AutoBuilder.buildAutoChooser("Intake-Score");
                         SmartDashboard.putData("Auto Mode", autoChooser);
 
-                         // Warmup PathPlanner to avoid Java pauses
+                        // Warmup PathPlanner to avoid Java pauses
                         FollowPathCommand.warmupCommand().schedule();
                 }
         }
 
         private void configureBindings() {
 
-                if(!enableDriveSystem)
-                {
+                if (!enableDriveSystem) {
                         return;
                 }
 
