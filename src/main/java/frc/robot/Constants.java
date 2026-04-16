@@ -12,8 +12,8 @@ public class Constants {
     }
 
     public static final class IntakeConstants {
-        public static final boolean INTAKE_ENABLED = true;
-        public static final double FEEDER_SPEED_FWD = .47;
+        public static final boolean INTAKE_ENABLED = false;
+        public static final double FEEDER_SPEED_FWD = .35;
         public static final double FEEDER_SPEED_BWD = -.45;
         public static final double DROP_SPEED = -.3;
         public static final double LIFT_SPEED = 1.0;
@@ -23,7 +23,7 @@ public class Constants {
     }
 
     public static final class ShooterConstants {
-        public static final boolean SHOOTER_ENABLED = true;
+        public static final boolean SHOOTER_ENABLED = false;
         public static final double TOP_SHOOTER_SPEED_FWD = .65;
         public static final double BOTTOM_SHOOTER_SPEED_FWD = .80;
         public static final double TOP_SHOOTER_SPEED_BWD = -.65;
@@ -34,7 +34,7 @@ public class Constants {
     }
 
     public static final class ElevatorConstants {
-        public static final boolean ELEVATOR_ENABLED = true;
+        public static final boolean ELEVATOR_ENABLED = false;
         public static final double ELEVATOR_SPEED_DOWN = .3;
         public static final double ELEVATOR_SPEED_UP = -.3;
         public static final double SPEED_ZERO = 0.0;
